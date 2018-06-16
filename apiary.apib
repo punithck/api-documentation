@@ -1,0 +1,108 @@
+FORMAT: 1A
+HOST:http://localhost:8000/medium
+
+# Medium
+
+It is the api for Medium Blog
+
+# Group login Authentication
+
+This group contain resources  related to login authentication
+
+## SignUp page  [/signup]
+
+This is for the new user
+
+### Sign Up [POST]
+
+you may create your own account
+
++ Request (application/json)
+
+        {
+            "username": "userid",
+            "password":"password" 
+        }
+
++ Response 200 (application/json)
+
+        [
+           {
+             "id":"unique id of user"
+             "userid":"xyz@gmail.com"
+             "article":["article_id","article_id"]
+             "bookmarks":["userid+article_id","userid+article_id"]
+           
+           }
+        ]
+        
++ Response 301 (application/json)
+
+        [
+            {
+               "error":"authentication failed"
+            }
+        ]
+        
+## LogIn page  [/login]
+
+login authentication 
+### LogIn [POST]
+
+you have to use your userid password for log in
+
++ Request (application/json)
+
+        {
+            "username": "userid",
+            "password":"password" 
+        }
+
++ Response 200 (application/json)
+
+        [
+           {
+             "id":"unique id of user"
+             "userid":"xyz@gmail.com"
+             "article":["article_id","article_id"]
+             "bookmarks":["userid+article_id","userid+article_id"]
+           
+           }
+        ]
+        
++ Response 301 (application/json)
+
+        [
+            {
+               "error":"authentication failed"
+            }
+        ]
+        
+# Group article Manipulation
+
+This group contain resources  related to artice manipulation
+
+## article request  [/article]
+
+Here you can requst for the article based on  article id
+
+### article [POST]
+
++ Request (application/json)
+
+        {
+            "article": "articleid"
+        }
+
++ Response 200 (application/json)
+
+        [
+           {
+             "id":"articleid"
+             "userid":"xyz@gmail.com"
+              "type":[]
+              "title":"title of article"
+              "description":"description about article"
+               "likes":"0"
+           }
+        ]
